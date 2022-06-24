@@ -44,10 +44,11 @@ After selecting the mode, the fuzzer will need to be configured with additional 
 
 #### Filter Options
 
-* `-r, --follow-redirect` Follow redirects
+* `-l, --follow-redirect` Follow redirects
 * `-k, --insecure` Don't validate TLS certificates
 * `-s, --status string` Comma seperated list of statuses to show (Overwritten by `--status-hide`)
 * `-sh, --status-hide string` Comma seperated list of statuses to hide (Overwritten by `--status`)
 * `-cl, --content-length string` Comma seperated list of Content-Lengths and ranges to show (Overwritten by `--content-length-hide`)
 * `-clh, --content-length-hide` Comma seperated list of Content-Lengths and ranges to hide (Overwritten by `--content-length`)
-* `-R, --regex string` Filter response bodies based on a Regular Expression
+* `-r, --regex string` Filter based on response bodies with a Regular Expression
+* `-rh, --header-regex string` Filter based on response headers with a Regular Expression
