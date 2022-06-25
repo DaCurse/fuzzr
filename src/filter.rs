@@ -26,6 +26,7 @@ impl ResponseView {
   }
 }
 
+#[derive(Debug)]
 pub enum FilterType {
   Status(u16),
   StatusRange(Range<u16>),
