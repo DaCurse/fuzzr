@@ -1,6 +1,7 @@
 use crate::parser::FuzzrArgs;
 use clap::Parser;
-use fuzzr::{self, Filter, FilterType, ResponseView};
+use fuzzr::filter::{Filter, FilterType, ResponseView};
+use fuzzr::{self};
 
 use rayon::prelude::*;
 use rayon::ThreadPoolBuilder;
