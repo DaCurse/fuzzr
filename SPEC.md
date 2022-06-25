@@ -20,7 +20,7 @@ After selecting the mode, the fuzzer will need to be configured with additional 
 
   Configuring the wordlist, passing requests through a proxy, etc.
 
-### General Options
+### Global Options
 
 * `--delay duration` Delay between each request
 * `--proxy string` Proxy to use for requests
@@ -32,23 +32,26 @@ After selecting the mode, the fuzzer will need to be configured with additional 
 
 ### HTTP Options
 
+#### General HTTP Options
+
+* `-f, --follow-redirect` Follow redirects
+* `-k, --insecure` Don't validate TLS certificates
+
 #### Input
 
 * `-u, --url string` The target URL
 * `-a, --user-agent string` User-Agent header value
 * `-c, --cookie string` Add a cookie to the request
-* `-H, --header string` Add extra HTTP headers
+* `-H, --header string` Add an aditional HTTP header
 * `-m, --method string` HTTP Method to use (default "GET")
-* `-P, --password string` Password for Basic Auth
 * `-U, --username string` Username for Basic Auth
+* `-P, --password string` Password for Basic Auth
 
 #### Filter Options
 
-* `-l, --follow-redirect` Follow redirects
-* `-k, --insecure` Don't validate TLS certificates
 * `-s, --status string` Comma seperated list of statuses to show (Overwritten by `--status-hide`)
-* `-sh, --status-hide string` Comma seperated list of statuses to hide (Overwritten by `--status`)
-* `-cl, --content-length string` Comma seperated list of Content-Lengths and ranges to show (Overwritten by `--content-length-hide`)
-* `-clh, --content-length-hide` Comma seperated list of Content-Lengths and ranges to hide (Overwritten by `--content-length`)
+* `-S, --status-hide string` Comma seperated list of statuses to hide (Overwritten by `--status`)
+* `-l, --content-length string` Comma seperated list of Content-Lengths and ranges to show (Overwritten by `--content-length-hide`)
+* `-L, --content-length-hide` Comma seperated list of Content-Lengths and ranges to hide (Overwritten by `--content-length`)
 * `-r, --regex string` Filter based on response bodies with a Regular Expression
-* `-rh, --header-regex string` Filter based on response headers with a Regular Expression
+* `--header-regex string` Filter based on response headers with a Regular Expression
