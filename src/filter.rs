@@ -1,3 +1,5 @@
+use regex::Regex;
+use reqwest::blocking::Response;
 use std::ops::Range;
 
 pub struct ResponseView {
@@ -23,8 +25,6 @@ impl ResponseView {
     };
   }
 }
-use regex::Regex;
-use reqwest::blocking::Response;
 
 pub enum FilterType {
   Status(u16),
