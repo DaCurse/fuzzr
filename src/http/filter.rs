@@ -39,9 +39,9 @@ pub enum FilterType {
 impl FilterType {
   pub fn matches(&self, response: &ResponseView) -> bool {
     match self {
-      Self::Status(s) => s.to_owned() == response.status,
+      Self::Status(s) => *s == response.status,
       Self::StatusRange(r) => r.contains(&response.status),
-      Self::ContentLength(cl) => cl.to_owned() == response.content_length,
+      Self::ContentLength(cl) => *cl == response.content_length,
       Self::ContentLengthRange(r) => r.contains(&response.content_length),
       Self::Headers(r) => response
         .headers

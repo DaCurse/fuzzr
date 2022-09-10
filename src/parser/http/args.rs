@@ -1,7 +1,9 @@
-use super::FilterParser;
 use clap::Parser;
-use fuzzr::filter::FilterType;
 use regex::Regex;
+
+use fuzzr::http::FilterType;
+
+use crate::parser::http::FilterParser;
 
 const DEFAULT_USER_AGENT: &str =
   concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -43,7 +45,7 @@ pub struct HttpInputArgs {
   #[clap(short, long, value_parser)]
   pub cookie: Vec<String>,
 
-  /// Add an aditional HTTP header
+  /// Add an additional HTTP header
   #[clap(short = 'H', long, value_parser)]
   pub header: Vec<String>,
 
@@ -65,14 +67,14 @@ pub struct HttpFilterArgs {
   /// Status code or range to show (Overwritten by --status-hide)
   #[clap(short, long, parse(try_from_str=FilterType::parse_status))]
   pub status: Option<Vec<FilterType>>,
-  /// Comma seperated list of statuses and ranges to hide (Overwritten by --status)
+  /// Comma separated list of statuses and ranges to hide (Overwritten by --status)
   #[clap(short = 'S', long, value_parser)]
   pub status_hide: Option<String>,
 
-  /// Comma seperated list of Content-Lengths and ranges to show (Overwritten by --content-length-hide)
+  /// Comma separated list of Content-Lengths and ranges to show (Overwritten by --content-length-hide)
   #[clap(short = 'l', long, value_parser)]
   pub content_length: Option<String>,
-  /// Comma seperated list of Content-Lengths and ranges to hide (Overwritten by --content-length)
+  /// Comma separated list of Content-Lengths and ranges to hide (Overwritten by --content-length)
   #[clap(short = 'L', long, value_parser)]
   pub content_length_hide: Option<String>,
 

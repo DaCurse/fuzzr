@@ -1,13 +1,15 @@
-use crate::parser::FuzzrArgs;
-use clap::Parser;
-use fuzzr::filter::{Filter, FilterType, ResponseView};
-use fuzzr::{self};
+use std::fs::File;
 
+use clap::Parser;
 use rayon::prelude::*;
 use rayon::ThreadPoolBuilder;
 use regex::Regex;
 use reqwest::blocking::Client;
-use std::fs::File;
+
+use fuzzr::http::{Filter, FilterType, ResponseView};
+use fuzzr::{self};
+
+use crate::parser::FuzzrArgs;
 
 mod parser;
 
